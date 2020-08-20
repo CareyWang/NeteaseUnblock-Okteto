@@ -1,34 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: NeteaseUnblock
+  name: netease-unblock
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: NeteaseUnblock
+      app: netease-unblock
   template:
     metadata:
       labels:
-        app: NeteaseUnblock
+        app: netease-unblock
     spec:
       containers:
-      - image: careywang/NeteaseUnblock:latest
-        name: NeteaseUnblock
+      - image: careywang/netease-unblock:latest
+        name: netease-unblock
 
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: NeteaseUnblock
+  name: netease-unblock
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
   type: ClusterIP  
   ports:
-  - name: "NeteaseUnblock"
+  - name: "netease-unblock"
     port: 8080
   selector:
-    app: NeteaseUnblock
-        
+    app: netease-unblock
