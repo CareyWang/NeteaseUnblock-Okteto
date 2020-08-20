@@ -1,8 +1,15 @@
 name: netease-unblock
 image: careywang/netease-unblock:latest
-command: ["node app.js -e https://163.music.com -p 8080:18080 -s -o joox youtube kuwo"]
+command: ["node", "app.js", "-e", "https://163.music.com", "-p", "8080:18080", "-s", "-o", "joox youtube kuwo"]
 workdir: /
 forward:
   - 8080:8080
 persistentVolume:
   enabled: false
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "250m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"  
