@@ -1,9 +1,9 @@
 name: netease-unblock
-image: careywang/netease-unblock:latest
+image: careywang/neteaseunblock:latest
 command: ["node", "app.js", "-e", "https://163.music.com", "-p", "8080:18080", "-s", "-o", "joox youtube kuwo"]
 workdir: /
 forward:
-  - 8080:8080
+  - 443:8080
 persistentVolume:
   enabled: false
 resources:
